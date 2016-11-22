@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+   	android:background="@color/topbar_background" >
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_modify_item"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:title="@string/topbar_title_item"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:rightImage="@drawable/btn_done_normal"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:layout_marginTop="@dimen/topbar_height" >    
+		    
+		    <EditText
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:layout_gravity="center_horizontal"
+		        android:id="@+id/modify_item"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/topbar_title_item"
+		        android:fontFamily="sans-serif"
+		        android:maxLength="100" />
+		    
+		    <TextView 
+		        android:id="@+id/tv_last_length"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="end"
+		        android:padding="12dp"
+		        android:textColor="@color/item_edit_text" />
+		        
+	    </LinearLayout>
+	    
+
+    </RelativeLayout>
+
+</RelativeLayout>

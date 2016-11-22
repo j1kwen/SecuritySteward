@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/tab_background" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        
+	    <com.challenger.securitysteward.controls.TabButton
+	       	android:id="@+id/tab_first"
+	       	app:clickcolor="@color/tab_button_selected_color"
+	       	app:text="@string/tab_item_downloading"
+	       	app:text_size="14dp"
+	       	style="@style/main_tabbutton" />
+	    
+	   	<View
+        android:layout_width="@dimen/item_div_line"
+        android:layout_height="fill_parent"
+        android:background="#66AAAAAA" />
+	    
+	    <com.challenger.securitysteward.controls.TabButton
+	       	android:id="@+id/tab_second"
+	       	app:clickcolor="@color/tab_button_selected_color"
+	       	app:text="@string/tab_item_finished"
+	       	app:text_size="14dp"
+	       	style="@style/main_tabbutton" />
+	    
+    </LinearLayout>
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/item_div_line"
+        android:background="#FFAAAAAA" />
+
+</LinearLayout>

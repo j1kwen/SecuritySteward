@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <style name="main_tabbutton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/background_tab</item>
+    </style>
+    
+    <style name="activityAnimation" parent="@android:style/Animation">  
+        <item name="android:activityOpenEnterAnimation">@animator/slide_right_in</item>  
+        <item name="android:activityOpenExitAnimation">@animator/slide_left_out</item>  
+        <item name="android:activityCloseEnterAnimation">@animator/slide_left_in</item>  
+        <item name="android:activityCloseExitAnimation">@animator/slide_right_out</item>  
+    </style>
+
+    <style name="AnimTools" parent="@android:style/Animation">  
+      <item name="android:windowEnterAnimation">@animator/push_in</item>  
+      <item name="android:windowExitAnimation">@animator/push_out</item>  
+	</style>
+    
+</resources>

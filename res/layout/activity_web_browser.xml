@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/topbar_background"
+	android:clipToPadding="true"
+	android:fitsSystemWindows="true"
+	android:orientation="vertical" >
+
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_web"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/app_name"
+		    app:rightImage="@drawable/btn_refresh_normal"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+
+	        
+    	<WebView
+    		android:id="@+id/web_view"
+    		android:layout_marginTop="@dimen/topbar_height"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

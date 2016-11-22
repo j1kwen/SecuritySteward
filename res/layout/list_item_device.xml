@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/btn_list_item_bg"
+	android:orientation="vertical" >
+	<View
+		android:id="@+id/div_list_device"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/item_div_line2"
+        android:layout_marginStart="@dimen/item_div_margin_start"
+        android:background="@color/item_div_color" />
+	<RelativeLayout
+        android:id="@+id/re_dev_info"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:background="@drawable/btn_list_item_bg"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
+        android:paddingStart="@dimen/item_padding"
+        android:paddingEnd="@dimen/item_padding" >
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_launcher"
+            android:contentDescription="@string/app_name" />
+        
+		<ImageView
+			android:id="@+id/iv_unread"
+			android:layout_toEndOf="@id/iv_avatar"
+            android:layout_width="14dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="-16dp"
+            android:src="@drawable/mask_new_message"
+            android:visibility="gone"
+            android:contentDescription="@string/app_name" />
+		
+		<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name" />
+		<TextView
+		    android:id="@+id/tv_last_time"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/a_5"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:text="@string/defaule_time"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:layout_toStartOf="@id/tv_last_time"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/user_item_album"
+            android:textColor="@color/item_default_text"
+            android:textSize="@dimen/item_text_size" />
+
+        <TextView
+            android:id="@+id/tv_recent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:layout_toStartOf="@id/tv_last_time"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:text="@string/hint_bind_did"
+             />
+    </RelativeLayout>
+
+
+</LinearLayout>

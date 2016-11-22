@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+   	android:background="@color/topbar_background" >
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+        <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_setting"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_settings"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+	    <ScrollView
+	        android:layout_marginTop="@dimen/topbar_height"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" >
+		
+		    <LinearLayout
+		    	android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical" >
+
+		    	<LinearLayout
+		    		android:layout_width="fill_parent"
+		    		android:layout_height="wrap_content"
+		    		android:layout_marginTop="@dimen/item_margin_top"
+		    		android:background="@drawable/btn_list_item_bg"
+		    		android:orientation="vertical" >
+
+		    		<RelativeLayout
+		    			android:id="@+id/re_cl_message"
+		    			android:layout_width="match_parent"
+		    			android:layout_height="@dimen/item_height"
+		    			android:background="@drawable/btn_list_item_bg"
+		    			android:clickable="true"
+		    			android:paddingEnd="@dimen/item_padding_no_icon"
+		    			android:paddingStart="@dimen/item_padding_no_icon" >
+
+		    			<TextView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_centerVertical="true"
+		    				android:text="@string/item_clean_all_msg"
+		    				android:textColor="@color/red"
+		    				android:textSize="@dimen/item_text_size" />
+		    		</RelativeLayout>
+		    	</LinearLayout>
+
+		    	<LinearLayout
+		    		android:layout_width="fill_parent"
+		    		android:layout_height="wrap_content"
+		    		android:layout_marginTop="@dimen/item_margin_top"
+		    		android:background="@drawable/btn_list_item_bg"
+		    		android:orientation="vertical" >
+
+		    		<RelativeLayout
+		    			android:id="@+id/re_help"
+		    			android:layout_width="match_parent"
+		    			android:layout_height="@dimen/item_height"
+		    			android:background="@drawable/btn_list_item_bg"
+		    			android:clickable="true"
+		    			android:paddingEnd="@dimen/item_padding_no_icon"
+		    			android:paddingStart="@dimen/item_padding_no_icon" >
+
+		    			<TextView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_centerVertical="true"
+		    				android:text="@string/item_help"
+		    				android:textColor="@color/item_default_text"
+		    				android:textSize="@dimen/item_text_size" />
+
+		    			<ImageView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_alignParentEnd="true"
+		    				android:layout_centerVertical="true"
+		    				android:contentDescription="@string/app_name"
+		    				android:src="@drawable/right_arrow_icon" />
+		    		</RelativeLayout>
+		    	</LinearLayout>
+
+		    	<LinearLayout
+		    		android:layout_width="fill_parent"
+		    		android:layout_height="wrap_content"
+		    		android:layout_marginTop="@dimen/item_margin_top"
+		    		android:background="@drawable/btn_list_item_bg"
+		    		android:orientation="vertical" >
+
+		    		<RelativeLayout
+		    			android:id="@+id/re_about"
+		    			android:layout_width="match_parent"
+		    			android:layout_height="@dimen/item_height"
+		    			android:background="@drawable/btn_list_item_bg"
+		    			android:clickable="true"
+		    			android:paddingEnd="@dimen/item_padding_no_icon"
+		    			android:paddingStart="@dimen/item_padding_no_icon" >
+
+		    			<TextView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_centerVertical="true"
+		    				android:text="@string/item_about"
+		    				android:textColor="@color/item_default_text"
+		    				android:textSize="@dimen/item_text_size" />
+
+		    			<ImageView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_alignParentEnd="true"
+		    				android:layout_centerVertical="true"
+		    				android:contentDescription="@string/app_name"
+		    				android:src="@drawable/right_arrow_icon" />
+		    		</RelativeLayout>
+		    	</LinearLayout>
+
+		    	<LinearLayout
+		    		android:layout_width="fill_parent"
+		    		android:layout_height="wrap_content"
+		    		android:layout_marginTop="@dimen/item_margin_top"
+		    		android:background="@drawable/btn_list_item_bg"
+		    		android:orientation="vertical" >
+
+		    		<RelativeLayout
+		    			android:layout_width="match_parent"
+		    			android:layout_height="@dimen/item_height"
+		    			android:background="@drawable/btn_list_item_bg"
+		    			android:paddingEnd="@dimen/item_padding_no_icon"
+		    			android:paddingStart="@dimen/item_padding_no_icon" >
+
+		    			<TextView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_centerVertical="true"
+		    				android:text="@string/item_local_debug"
+		    				android:textColor="@color/item_default_text"
+		    				android:textSize="@dimen/item_text_size" />
+
+		    		</RelativeLayout>
+		    	</LinearLayout>
+
+		    </LinearLayout>
+		
+		</ScrollView>
+
+	</RelativeLayout>
+</RelativeLayout>

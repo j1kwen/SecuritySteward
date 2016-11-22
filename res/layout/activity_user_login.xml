@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+   	android:background="@color/topbar_background" >
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_user_login"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_user_login"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+	   <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:layout_marginTop="@dimen/topbar_height" >
+	        
+		    <EditText
+		        android:inputType="number"
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:layout_gravity="center_horizontal"
+		        android:id="@+id/login_form_user"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/hint_login_user"
+		        android:maxLength="20"
+		        android:drawableStart="@drawable/login_user"
+		        android:drawablePadding="10dp" />
+		    
+		    <EditText
+		        android:inputType="textPassword"
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:layout_gravity="center_horizontal"
+		        android:id="@+id/login_form_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/hint_login_pwd"
+		        android:fontFamily="sans-serif"
+		        android:maxLength="16"
+		        android:drawableStart="@drawable/login_password"
+		        android:drawablePadding="10dp" />
+		    
+		    <Button 
+		        android:background="@drawable/button_wide_selector"
+		        android:id="@+id/login_form_btn_submit"
+		        android:text="@string/btn_login"
+		        android:textColor="@color/topbar_title_text"
+		        android:layout_width="match_parent"
+		        android:layout_margin="@dimen/margin_common"
+		        android:layout_height="@dimen/btn_height_low"
+		        android:layout_gravity="center_horizontal"/>
+		    
+			<RelativeLayout
+			    android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		         >
+		        
+			    <TextView
+			        android:id="@+id/link_forget_password"
+			        android:padding="@dimen/margin_common"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="-18dp"
+			        android:text="@string/link_text_forget_password"
+			        android:textColor="@color/link_text" />
+			    
+			    <TextView
+			        android:id="@+id/link_register_new"
+			        android:padding="@dimen/margin_common"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentEnd="true"
+			        android:layout_marginTop="-18dp"
+			        android:text="@string/link_text_register"
+			        android:textColor="@color/link_text" />
+			    
+			</RelativeLayout>
+		    
+	    </LinearLayout>
+	    
+
+    </RelativeLayout>
+
+</RelativeLayout>

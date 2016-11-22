@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+   	android:background="@color/topbar_background" >
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_bind"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_bind"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:layout_marginTop="@dimen/topbar_height" >
+	        
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="@dimen/margin_common"
+	            android:paddingEnd="@dimen/margin_text_start"
+	            android:paddingStart="@dimen/margin_text_start"
+	            android:text="@string/text_bind_warning"
+	            android:textSize="@dimen/text_hint_size" />
+		    
+		    <EditText
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:id="@+id/bind_did"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/hint_bind_did"
+		        android:fontFamily="sans-serif"
+		        android:maxLength="32"
+		        android:drawablePadding="10dp" />
+		    
+		    <EditText
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:id="@+id/bind_name"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/hint_bind_name"
+		        android:fontFamily="sans-serif"
+		        android:maxLength="50"
+		        android:drawablePadding="10dp" />
+		    
+		    <RelativeLayout
+		        android:id="@+id/re_bind_image"
+		        android:layout_width="match_parent"
+		        android:layout_height="80dp"
+		        android:clickable="true"
+		        android:paddingStart="@dimen/item_padding_no_icon"
+	        	android:paddingEnd="@dimen/item_padding_no_icon" >
+		
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_centerVertical="true"
+		            android:text="@string/hint_bind_image"
+		            android:textColor="#8b8b8b"
+		            android:textSize="18sp" />
+		        
+		        <ImageView
+		            android:id="@+id/iv_bind_image"
+		            android:layout_width="64dp"
+		            android:layout_height="64dp"
+		            android:layout_alignParentEnd="true"
+		            android:layout_centerVertical="true"
+		            android:layout_marginEnd="@dimen/item_left_of_arrow"
+		            android:src="@drawable/ic_launcher"
+		            android:contentDescription="@string/app_name" />
+		        
+		        <ImageView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/right_arrow_icon"
+	                android:layout_alignParentEnd="true"
+	                android:layout_centerVertical="true"
+	                android:contentDescription="@string/app_name" />
+   
+		    </RelativeLayout>
+		    
+		    <Button 
+		        android:background="@drawable/button_wide_selector"
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:id="@+id/bind_ok"
+		        android:text="@string/btn_bind"
+		        android:textColor="@color/topbar_title_text"
+		        android:layout_width="@dimen/btn_width_wide"
+		        android:layout_height="@dimen/btn_height_low"
+		        android:layout_gravity="center_horizontal"/>
+		    
+	    </LinearLayout>
+	    
+    </RelativeLayout>
+
+</RelativeLayout>

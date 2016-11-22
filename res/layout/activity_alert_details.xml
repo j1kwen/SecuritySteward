@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/topbar_background"
+	android:clipToPadding="true"
+	android:fitsSystemWindows="true"
+	android:orientation="vertical" >
+
+   	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_message"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_message"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:layout_marginTop="@dimen/topbar_height" >
+	        
+	        <TextView
+	            android:id="@+id/message_text"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="@dimen/margin_common"
+	            android:paddingEnd="@dimen/margin_text_start"
+	            android:paddingStart="@dimen/margin_text_start"
+	            android:text="@string/topbar_title_message"
+	            android:textSize="@dimen/text_hint_size" />
+	        
+	        <TextView
+	            android:id="@+id/message_body"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="@dimen/margin_common"
+	            android:paddingEnd="@dimen/margin_text_start"
+	            android:paddingStart="@dimen/margin_text_start"
+	            android:text="@string/topbar_title_message"
+	            android:textSize="@dimen/text_hint_size" />
+		    
+		    
+		    <Button 
+		        android:background="@drawable/button_wide_selector"
+		        android:layout_marginTop="@dimen/margin_common"
+		        android:id="@+id/message_ok"
+		        android:text="@string/btn_ok"
+		        android:textColor="@color/topbar_title_text"
+		        android:layout_width="@dimen/btn_width_wide"
+		        android:layout_height="@dimen/btn_height_low"
+		        android:layout_gravity="center_horizontal"/>
+		    
+	    </LinearLayout>
+	    
+    </RelativeLayout>
+
+</RelativeLayout>

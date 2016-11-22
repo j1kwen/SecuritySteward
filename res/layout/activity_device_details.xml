@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+   	android:background="@color/topbar_background" >
+   	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default"
+        android:orientation="vertical" >
+
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_device_detail"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_message"
+		    app:rightImage="@drawable/btn_more_normal"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+	    </com.challenger.securitysteward.controls.TopBar>
+	        
+        <ListView
+        	android:id="@+id/lv_device_msg"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:footerDividersEnabled="true"
+			android:divider="#ffffffff" >
+        	
+        </ListView>
+	    
+    </LinearLayout>
+
+</LinearLayout>

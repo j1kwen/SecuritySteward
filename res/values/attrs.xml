@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TabButton">
+       <!--The initial display of icon-->
+       <attr name="image" format="reference"/>
+       <!--After selecting the icon-->
+       <attr name="clickimage" format="reference"/>
+       <!--After selecting the color-->
+       <attr name="clickcolor" format="color"/>
+       <!--Text under the icon displayed。Recommend shorter-->
+       <attr name="text" format="string"/>
+       <!--Text size-->
+       <attr name="text_size" format="dimension"/>
+   </declare-styleable>
+   <declare-styleable name="TopBar">
+       <attr name="topbar_background" format="reference|color"/>
+       <attr name="title" format="string"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="rightImage" format="reference" />
+        <attr name="btnBackground" format="reference|color"/>
+        <attr name="btnTextColor" format="color"/>
+   </declare-styleable>
+
+</resources>

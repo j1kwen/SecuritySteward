@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.challenger.securitysteward"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+   	android:clipToPadding="true"
+    android:layout_height="match_parent"
+    android:background="@color/topbar_background" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_default" >
+        
+	    <com.challenger.securitysteward.controls.TopBar
+	        android:id="@+id/topbar_main"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/topbar_height"
+		    app:rightImage="@drawable/selector_btn_add"
+		    app:btnBackground="@color/topbar_btn_background"
+		    app:btnTextColor="@color/topbar_btn_text"
+		    app:title="@string/topbar_title_text_default"
+		    app:titleTextColor="@color/topbar_title_text"
+		    app:titleTextSize="@dimen/topbar_title_size"
+		    app:topbar_background="@color/topbar_background" >
+
+	    </com.challenger.securitysteward.controls.TopBar>
+	    
+	    <com.challenger.securitysteward.controls.UnScrollViewPage
+			android:id="@+id/viewpager_main"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="@dimen/tabs_height"
+	        android:layout_marginTop="@dimen/topbar_height" />
+	        
+		<include
+		    android:layout_width="match_parent"
+	        android:layout_height="@dimen/tabs_height"
+	        android:layout_alignParentBottom="true"
+	        layout="@layout/layout_bottomtab" />
+		
+    </RelativeLayout>
+
+</RelativeLayout>

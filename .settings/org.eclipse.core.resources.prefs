@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/com/challenger/securitysteward/BaseActivity.java=UTF-8
+encoding//src/com/challenger/securitysteward/fragment/BaseFragment.java=UTF-8
+encoding//src/com/karics/library/zxing/android/BeepManager.java=UTF-8
+encoding//src/com/karics/library/zxing/android/CaptureActivity.java=UTF-8
+encoding//src/com/karics/library/zxing/android/CaptureActivityHandler.java=UTF-8
+encoding//src/com/karics/library/zxing/camera/CameraConfigurationUtils.java=UTF-8
+encoding//src/com/karics/library/zxing/camera/CameraManager.java=UTF-8
+encoding//src/com/karics/library/zxing/view/ViewfinderView.java=UTF-8
