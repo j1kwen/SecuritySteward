@@ -156,9 +156,9 @@
     <string name="alert_message_not_saved">Modifications have not been saved, quit?</string>
     <string name="alert_button_quit">Quit</string>
     <string name="alert_button_cancel">Cancel</string>
-    <string name="alert_message_unbind">Are you sure want to unbind this device? You will not receive any news of this device.</string>
-    <string name="alert_message_clear_all">Are you sure want to delete all message records?</string>
-    <string name="alert_message_clear">Are you sure want to delete the message record for this device?</string>
+    <string name="alert_message_unbind">Are you sure want to unbind this device? The device message records will be deleted and you will not receive any news of this device.</string>
+    <string name="alert_message_clear_all">Are you sure want to delete all message records? The photos stored on the server will be deleted!</string>
+    <string name="alert_message_clear">Are you sure want to delete the message record for this device? The photos stored on the server will be deleted!</string>
     
     <string name="notify_title_alert">Device Alert</string>
     <string name="notify_text_test">Your device has been push an alert message!</string>

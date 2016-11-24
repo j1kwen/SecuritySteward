@@ -6,6 +6,7 @@ import com.challenger.securitysteward.utils.Utils;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -101,6 +102,8 @@ public class TopBar extends RelativeLayout {
         mTextViewTitle.setTextColor(mTitleTextColor);
         mTextViewTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mTitleTextSize);
         mTextViewTitle.setText(mTitleText);
+        mTextViewTitle.setEllipsize(TruncateAt.END);
+        mTextViewTitle.setSingleLine();
         mTextViewTitle.setGravity(Gravity.CENTER);
         mTextViewTitle.setFitsSystemWindows(true);
 
@@ -108,10 +111,14 @@ public class TopBar extends RelativeLayout {
         setBackground(mTopBarBackground);
 
         // Instantiation left/right LayoutParams
-        mLeftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        mTitleParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        mLeftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         
-        mRightParams = new LayoutParams(Utils.dp2px(context, 40),Utils.dp2px(context, 40));
+        mRightParams = new LayoutParams(Utils.dp2px(context, 40), Utils.dp2px(context, 40));
+        int x = (int) (mRightParams.width * 2);
+        
+        //mTitleParams = new LayoutParams(5 * mRightParams.width, ViewGroup.LayoutParams.MATCH_PARENT);
+        mTitleParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mTitleParams.setMargins(x, 0, x, 0);
         
         // Add rule : How to display
         mLeftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);

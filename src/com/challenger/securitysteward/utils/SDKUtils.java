@@ -2,6 +2,7 @@ package com.challenger.securitysteward.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +12,7 @@ import android.os.Message;
 import android.util.Pair;
 
 import com.challenger.securitysteward.model.DeviceItemModel;
+import com.challenger.securitysteward.model.DeviceMessage;
 import com.challenger.securitysteward.utils.HttpWebClientRequest.OnReceiveBytes;
 
 public class SDKUtils {
@@ -145,6 +147,36 @@ public class SDKUtils {
 		para.add(new Pair<String, String>("del", "1"));
 		HttpWebClientRequest thread = new HttpWebClientRequest(host, para);
 		thread.start();
+	}
+	
+	public void deleteDeviceMessage(String secret, String cid, List<DeviceMessage> msg) {
+		String host = Utils.getDelMsgServerUrl();
+		List<Pair<String, String>> para = new ArrayList<Pair<String,String>>();
+		para.add(new Pair<String, String>("secret", secret));
+		para.add(new Pair<String, String>("cid", cid));
+		StringBuilder str = new StringBuilder();
+		for(DeviceMessage dev : msg) {
+			if(dev.isSystemMsg()) {
+				continue;
+			}
+			String i = dev.getHref();
+			int sta = i.indexOf("key=") + 4;
+			str.append(i.substring(sta, sta + 32) + "|");
+		}
+		if(str.length() > 0) {
+			String msgStr = str.toString();
+			para.add(new Pair<String, String>("msg", msgStr.substring(0, msgStr.length() - 1)));
+			HttpWebRequestPost thread = new HttpWebRequestPost(host, para);
+			thread.start();
+		}
+	}
+	
+	public void deleteDeviceMessage(String secret, String cid, Map<String, List<DeviceMessage>> msg) {
+		List<DeviceMessage> list = new ArrayList<DeviceMessage>();
+		for(List<DeviceMessage> li : msg.values()) {
+			list.addAll(li);
+		}
+		deleteDeviceMessage(secret, cid, list);
 	}
 	
 	public void getDeviceImage(String secret, String cid, String did, OnReceivedBytes listener) {

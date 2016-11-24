@@ -156,9 +156,9 @@
     <string name="alert_message_not_saved">所做修改还未保存, 放弃修改并退出？</string>
     <string name="alert_button_quit">退出</string>
     <string name="alert_button_cancel">取消</string>
-    <string name="alert_message_unbind">确实要解绑该设备？解绑后，你将无法收到该设备的任何消息。</string>
-    <string name="alert_message_clear_all">确实要删除所有设备的消息记录吗？</string>
-    <string name="alert_message_clear">确实要删除该设备的消息记录吗？</string>
+    <string name="alert_message_unbind">确实要解绑该设备？解绑后，设备消息记录将被清空，你也将无法收到该设备的任何消息。</string>
+    <string name="alert_message_clear_all">确实要删除所有设备的消息记录吗？服务端存储的照片也将被删除！</string>
+    <string name="alert_message_clear">确实要删除该设备的消息记录吗？服务端该设备的照片也将被删除！</string>
     
     <string name="notify_title_alert">设备通知</string>
     <string name="notify_text_test">您的设备向您推送了一条消息</string>

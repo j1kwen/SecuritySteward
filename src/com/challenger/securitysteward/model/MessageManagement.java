@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.challenger.securitysteward.utils.SDKUtils;
+import com.challenger.securitysteward.utils.Utils;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -122,6 +125,8 @@ public class MessageManagement {
 			db = this.context.openOrCreateDatabase("data.db", Context.MODE_PRIVATE, null);
 			String sql = "delete from messages where did='" + did +"'";
 			db.execSQL(sql);
+			
+			SDKUtils.getInstance().deleteDeviceMessage(Utils.SECRET_KEY, Utils.clientId, ls);
 			ls.clear();
 			db.close();
 			return true;
@@ -136,6 +141,8 @@ public class MessageManagement {
 			db = this.context.openOrCreateDatabase("data.db", Context.MODE_PRIVATE, null);
 			String sql = "delete from messages";
 			db.execSQL(sql);
+			
+			SDKUtils.getInstance().deleteDeviceMessage(Utils.SECRET_KEY, Utils.clientId, mListMessage);
 			mListMessage.clear();
 			db.close();
 			return true;

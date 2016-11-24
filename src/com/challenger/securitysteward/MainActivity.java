@@ -113,18 +113,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				.setCancelable(false)
 				.create().show();
         }
-        
         Bundle bundle = getIntent().getBundleExtra(Utils.EXTRA_BUNDLE);
         if(bundle != null){
+        	Log.d(TAG, "extra bundle exist");
         	Intent intent = new Intent(MainActivity.this, DeviceDetailsActivity.class);
         	DeviceMessage msg = (DeviceMessage) getIntent().getSerializableExtra("message");
         	String did = getIntent().getStringExtra("did");
         	Utils.getMessageManagement().addDeviceMessage(did, msg);
         	
 			intent.putExtra("did", did);
+			
+			getIntent().removeExtra(Utils.EXTRA_BUNDLE);
+			
 			startActivity(intent);
         }
     }
+	
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		Log.d(TAG, "require a new intent");
+		Bundle bundle = intent.getBundleExtra(Utils.EXTRA_BUNDLE);
+		if(bundle != null){
+			Log.d(TAG, "extra bundle exist");
+			Intent intent2 = new Intent(MainActivity.this, DeviceDetailsActivity.class);
+			DeviceMessage msg = (DeviceMessage) intent.getSerializableExtra("message");
+			String did = intent.getStringExtra("did");
+			Utils.getMessageManagement().addDeviceMessage(did, msg);
+			
+			intent2.putExtra("did", did);
+			
+			intent.removeExtra(Utils.EXTRA_BUNDLE);
+			
+			changeAlpha(0);
+			mViewPager.setCurrentItem(0, false);
+			
+			startActivity(intent2);
+		}
+	}
 
     /** 
      * Initialization, access controls reference

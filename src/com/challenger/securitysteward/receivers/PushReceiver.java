@@ -16,6 +16,7 @@ import android.util.Log;
 
 import com.challenger.securitysteward.R;
 import com.challenger.securitysteward.model.DeviceMessage;
+import com.challenger.securitysteward.utils.SystemUtils;
 import com.igexin.sdk.PushConsts;
 
 public class PushReceiver extends BroadcastReceiver{
@@ -47,18 +48,17 @@ public class PushReceiver extends BroadcastReceiver{
 						pushNotification(context, json);
 					} else if(json.getString("type").equals("message")) {
 						Log.d(TAG, "type is message");
-//						if(SystemUtils.isActivityAlive("com.challenger.securitysteward",
-//													"MainActivity", context)) {
+						if(!SystemUtils.isApplicationBroughtToBackground(context)) {
 							Log.d("Receiver","activity has alived");
 							Intent intentSend = new Intent();
 							intentSend.setAction("com.challenger.securitysteward.SEND_DEVICE_MESSAGE");
 							intentSend.putExtra("data", data);
 							context.sendBroadcast(intentSend);
-//						} else {
-//							// Push notification
-//							Log.d("Receiver","activity has dead.");
-//							pushNotification(context, json);
-//						}
+						} else {
+							// Push notification
+							Log.d("Receiver","activity gone to background.");
+							pushNotification(context, json);
+						}
 					}
 				} catch (JSONException e) {
 					e.printStackTrace();

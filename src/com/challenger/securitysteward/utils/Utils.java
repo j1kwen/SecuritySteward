@@ -37,6 +37,11 @@ public class Utils {
 	private static final String UPLOAD				= "/upload";
 	private static final String MODIFY				= "/modify";
 	private static final String IMAGE				= "/image";
+	private static final String MESSAGE				= "/delmsg";
+	
+	public static String getDelMsgServerUrl() {
+		return new String(HOST + MESSAGE);
+	}
 	
 	public static String getImageServerUrl() {
 		return new String(HOST + IMAGE);

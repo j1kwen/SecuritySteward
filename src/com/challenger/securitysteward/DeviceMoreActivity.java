@@ -190,6 +190,7 @@ public class DeviceMoreActivity extends BaseActivity implements OnReceivedResult
 			JSONObject json = new JSONObject(val);
 			if(json.getInt("result") == 0) {
 				Utils.setToastBottom(DeviceMoreActivity.this, R.string.toast_unbind_success);
+				Utils.getMessageManagement().clearMessage(mDeviceInfo.getDid());
 				setResult(RESULT_OK);
 				finish();
 			} else if(json.getInt("result") == 10) {
