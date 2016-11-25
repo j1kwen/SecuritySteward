@@ -3,7 +3,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.challenger.securitysteward"
     android:versionCode="1"
-    android:versionName="1.11.23.1534" >
+    android:versionName="1.11.25.1330" >
 
     <uses-sdk
         android:minSdkVersion="17"

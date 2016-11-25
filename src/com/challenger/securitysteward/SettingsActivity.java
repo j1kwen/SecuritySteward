@@ -1,8 +1,16 @@
 package com.challenger.securitysteward;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,9 +18,11 @@ import android.widget.RelativeLayout;
 
 import com.challenger.securitysteward.controls.TopBar;
 import com.challenger.securitysteward.controls.TopBar.TopBarClickListener;
+import com.challenger.securitysteward.utils.SDKUtils;
+import com.challenger.securitysteward.utils.SDKUtils.OnReceivedResult;
 import com.challenger.securitysteward.utils.Utils;
 
-public class SettingsActivity extends BaseActivity {
+public class SettingsActivity extends BaseActivity implements OnReceivedResult {
 
 	
 	@Override
@@ -82,11 +92,10 @@ public class SettingsActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO : to test alert notify
 				Intent intent = new Intent(SettingsActivity.this, WebBrowserActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putString("title", getString(R.string.item_help));
-				bundle.putString("url", "http://kf.qq.com/touch/product/mobileqq_app.html?deviceModel=iPhone6%2C2&QUA=V1_IPH_SQ_6.5.9_1_APP_A&platform=15&jailBroken=0&version=6.5.9.426&appid=537048285&scene_id=kf180");
+				bundle.putString("url", "http://help.dogest.cn");
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
@@ -99,5 +108,82 @@ public class SettingsActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
+		((RelativeLayout)findViewById(R.id.re_check_update)).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				SDKUtils.getInstance().getUpdateXmlFile(SettingsActivity.this);
+			}
+		});
+	}
+
+	@Override
+	public void onReceived(String result) {
+		String par = "(?<=android:versionName=\")([0-9]*[\\.]*)*";
+		
+		Pattern pattern = Pattern.compile(par);
+		Matcher match = pattern.matcher(result);
+		while(match.find()) {
+			String res = match.group();
+			checkUpdate(res);
+			return;
+		}
+		Utils.setToastBottom(this, R.string.toast_new_version_err);
+	}
+	
+	private void checkUpdate(String newVer) {
+		String now = null;
+		try {
+	        PackageManager pm = getPackageManager();
+	        PackageInfo pi = pm.getPackageInfo(getPackageName(), PackageManager.GET_CONFIGURATIONS);
+	        now = pi.versionName;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } 
+		if(now == null) {
+			Utils.setToastBottom(this, R.string.toast_local_version_err);
+		}
+		if(isNewVersion(now, newVer)) {
+			new AlertDialog.Builder(this)
+				.setTitle(R.string.alert_title_new_ver)
+				.setMessage(String.format(getString(R.string.alert_new_version), now, newVer))
+				.setPositiveButton(R.string.alert_button_yes, new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);  
+				          
+					    Uri uri = Uri.parse("https://raw.githubusercontent.com/763461297/SecuritySteward/master/bin/SecuritySteward.apk");  
+					    Request request = new Request(uri);  
+					  
+					    //设置允许使用的网络类型，这里是移动网络和wifi都可以    
+					    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE|DownloadManager.Request.NETWORK_WIFI);    
+					  
+					    //不显示下载界面    
+					    request.setVisibleInDownloadsUi(true);  
+					    downloadManager.enqueue(request);  
+					    Utils.setToastBottom(SettingsActivity.this, R.string.toast_now_downloading);
+					}
+				})
+				.setNegativeButton(R.string.alert_button_no, null)
+				.show();
+		} else {
+			Utils.setToastBottom(this, R.string.toast_is_least_ver);
+		}
+	}
+	
+	private boolean isNewVersion(String nowV, String newV) {
+		String[] nows = nowV.split(".");
+		String[] news = newV.split(".");
+		if(nows.length != news.length) {
+			return false;
+		}
+		for(int i = 0 ; i < nows.length ; i++) {
+			if(Integer.valueOf(news[i]) > Integer.valueOf(nows[i])) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

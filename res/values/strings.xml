@@ -25,6 +25,7 @@
     <string name="item_clean_all_msg">Clear all message</string>
     <string name="item_clear_msg">Clear device\'s meaasge</string>
     <string name="item_local_debug">Local Debug</string>
+    <string name="item_update">Check Update</string>
     
     <string name="topbar_left_text_default">Back</string>
     <string name="topbar_title_text_default">Loading…</string>
@@ -141,6 +142,10 @@
     <string name="toast_wifi_pwd_length_err">Password length at least 8</string>
     <string name="toast_unbind_success">Unbind success</string>
  	<string name="toast_bind_device_already">Device already binded</string>
+ 	<string name="toast_local_version_err">Get local version failed</string>
+    <string name="toast_new_version_err">Get new version failed</string>
+    <string name="toast_is_least_ver">Currently is the latest version</string>
+    <string name="toast_now_downloading">Downloading, please install manually after the download is complete.</string>
     
     <string name="checkbox_text_license">I have read and agree</string>
     <string name="checkbox_text_no_pwd">No password</string>
@@ -149,6 +154,7 @@
     <string name="link_text_forget_password">Forget Password?</string>
     <string name="link_text_register">Register</string>
     
+    <string name="alert_title_new_ver">New version</string>
     <string name="alert_title_confirm">Confirm</string>
     <string name="alert_message_logout">Are you sure want to log out this account? Your extra data (For eg. Avatar) will be deleted.</string>
     <string name="alert_button_yes">Yes</string>
@@ -159,6 +165,7 @@
     <string name="alert_message_unbind">Are you sure want to unbind this device? The device message records will be deleted and you will not receive any news of this device.</string>
     <string name="alert_message_clear_all">Are you sure want to delete all message records? The photos stored on the server will be deleted!</string>
     <string name="alert_message_clear">Are you sure want to delete the message record for this device? The photos stored on the server will be deleted!</string>
+    <string name="alert_new_version" formatted="false">Found a new version! Now ver.:%s, new ver.:%s, Download now?</string>
     
     <string name="notify_title_alert">Device Alert</string>
     <string name="notify_text_test">Your device has been push an alert message!</string>

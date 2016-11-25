@@ -135,6 +135,8 @@
 		    		android:orientation="vertical" >
 
 		    		<RelativeLayout
+		    			android:id="@+id/re_check_update"
+		    			android:clickable="true"
 		    			android:layout_width="match_parent"
 		    			android:layout_height="@dimen/item_height"
 		    			android:background="@drawable/btn_list_item_bg"
@@ -145,9 +147,16 @@
 		    				android:layout_width="wrap_content"
 		    				android:layout_height="wrap_content"
 		    				android:layout_centerVertical="true"
-		    				android:text="@string/item_local_debug"
+		    				android:text="@string/item_update"
 		    				android:textColor="@color/item_default_text"
 		    				android:textSize="@dimen/item_text_size" />
+		    			<ImageView
+		    				android:layout_width="wrap_content"
+		    				android:layout_height="wrap_content"
+		    				android:layout_alignParentEnd="true"
+		    				android:layout_centerVertical="true"
+		    				android:contentDescription="@string/app_name"
+		    				android:src="@drawable/right_arrow_icon" />
 
 		    		</RelativeLayout>
 		    	</LinearLayout>

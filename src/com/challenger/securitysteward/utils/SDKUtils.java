@@ -69,7 +69,7 @@ public class SDKUtils {
 		
 		final MyHandler handler = new MyHandler(listener);
 		
-		HttpWebRequestPost thread = new HttpWebRequestPost(host, para);
+		HttpWebRequest thread = new HttpWebRequest(host, para);
 		thread.setOnFinishedListener(new OnFinishedListener() {
 			
 			@Override
@@ -92,7 +92,7 @@ public class SDKUtils {
 		
 		final MyHandler handler = new MyHandler(listener);
 		
-		HttpWebRequestPost thread = new HttpWebRequestPost(host, para);
+		HttpWebRequest thread = new HttpWebRequest(host, para);
 		thread.setOnFinishedListener(new OnFinishedListener() {
 			
 			@Override
@@ -166,7 +166,7 @@ public class SDKUtils {
 		if(str.length() > 0) {
 			String msgStr = str.toString();
 			para.add(new Pair<String, String>("msg", msgStr.substring(0, msgStr.length() - 1)));
-			HttpWebRequestPost thread = new HttpWebRequestPost(host, para);
+			HttpWebRequest thread = new HttpWebRequest(host, para);
 			thread.start();
 		}
 	}
@@ -196,6 +196,25 @@ public class SDKUtils {
 				Message msg = new Message();
 				Bundle bundle = new Bundle();
 				bundle.putByteArray("data", bytes);
+				msg.setData(bundle);
+				handler.sendMessage(msg);
+			}
+		});
+		
+		thread.start();
+	}
+	
+	public void getUpdateXmlFile(OnReceivedResult listener) {
+		String host = "https://raw.githubusercontent.com/763461297/SecuritySteward/master/AndroidManifest.xml";
+		final MyHandler handler = new MyHandler(listener);
+		HttpWebRequest thread = new HttpWebRequest(host, null);
+		thread.setOnFinishedListener(new OnFinishedListener() {
+			
+			@Override
+			public void onFinish(String result) {
+				Message msg = new Message();
+				Bundle bundle = new Bundle();
+				bundle.putString("data", result);
 				msg.setData(bundle);
 				handler.sendMessage(msg);
 			}
