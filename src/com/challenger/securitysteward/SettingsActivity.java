@@ -12,6 +12,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -146,6 +147,8 @@ public class SettingsActivity extends BaseActivity implements OnReceivedResult {
 		}
 		Log.d("VERSION","now:" + now + " new:" + newVer);
 		if(isNewVersion(now, newVer)) {
+			
+			final String newVer_f = newVer.replace('.', '_');
 			new AlertDialog.Builder(this)
 				.setTitle(R.string.alert_title_new_ver)
 				.setMessage(String.format(getString(R.string.alert_new_version), now, newVer))
@@ -161,9 +164,10 @@ public class SettingsActivity extends BaseActivity implements OnReceivedResult {
 					  
 					    //设置允许使用的网络类型，这里是移动网络和wifi都可以    
 					    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE|DownloadManager.Request.NETWORK_WIFI);    
-					  
-					    //不显示下载界面    
-					    request.setVisibleInDownloadsUi(true);  
+					    request.setNotificationVisibility(Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+					    request.setVisibleInDownloadsUi(true);
+					    request.setDestinationInExternalFilesDir(getApplicationContext(), Environment.DIRECTORY_DOWNLOADS,"SecuritySteward_"+ newVer_f +".apk");
+					    request.setMimeType("application/vnd.android.package-archive");
 					    downloadManager.enqueue(request);  
 					    Utils.setToastBottom(SettingsActivity.this, R.string.toast_now_downloading);
 					}
