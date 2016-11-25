@@ -12,6 +12,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
@@ -143,6 +144,7 @@ public class SettingsActivity extends BaseActivity implements OnReceivedResult {
 		if(now == null) {
 			Utils.setToastBottom(this, R.string.toast_local_version_err);
 		}
+		Log.d("VERSION","now:" + now + " new:" + newVer);
 		if(isNewVersion(now, newVer)) {
 			new AlertDialog.Builder(this)
 				.setTitle(R.string.alert_title_new_ver)
@@ -174,8 +176,8 @@ public class SettingsActivity extends BaseActivity implements OnReceivedResult {
 	}
 	
 	private boolean isNewVersion(String nowV, String newV) {
-		String[] nows = nowV.split(".");
-		String[] news = newV.split(".");
+		String[] nows = nowV.split("\\.");
+		String[] news = newV.split("\\.");
 		if(nows.length != news.length) {
 			return false;
 		}
