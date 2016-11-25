@@ -166,7 +166,7 @@
     <string name="alert_message_unbind">确实要解绑该设备？解绑后，设备消息记录将被清空，你也将无法收到该设备的任何消息。</string>
     <string name="alert_message_clear_all">确实要删除所有设备的消息记录吗？服务端存储的照片也将被删除！</string>
     <string name="alert_message_clear">确实要删除该设备的消息记录吗？服务端该设备的照片也将被删除！</string>
-    <string name="alert_new_version" formatted="false">发现新版本！当前版本：%s，最新版本：%s，是否下载该更新？</string>
+    <string name="alert_new_version" formatted="false">发现新版本！\n当前版本：%s\n最新版本：%s\n是否下载该更新？</string>
     
     <string name="notify_title_alert">设备通知</string>
     <string name="notify_text_test">您的设备向您推送了一条消息</string>
